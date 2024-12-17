@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kardiovaskular Diagnosis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/start.css">
+    <style>
+        /* Overlay Styling */
+        #overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Dark background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Modal Content Styling */
+        #modal-content {
+            width: 70%;
+            height: 70%;
+            background: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Chatbot Button Styling */
+        .chatbot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #3c6a50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            background-color: #4d9a63;
+        }
+    </style>
+</head>
+<body>
+    <!-- ChatBot Button -->
+    <div id="chatbot">
+        <button class="chatbot-button" onclick="openModal()">Ask Kard AI</button>
+    </div>
+
+    <!-- Header Section -->
+    <div id="header">
+        <div class="container">
+            <nav>
+                <p> Detak<span>Sehat</span>. </p>
+                <ul>
+                    <li><a href="#header">Pengecekan</a></li>
+                    <li><a href="#kardio-info">Pengertian</a></li>
+                    <li><a href="#jenis-kardio">Jenis-Jenis</a></li>
+                </ul>        
+            </nav>  
+            
+            <div class="header-text">
+                <h1>Kardio<span>vaskular</span> <br>Diagnosis</h1>
+                <p>Website ini merupakan situs untuk mendeteksi resiko terkena penyakit kardiovaskular.</p>
+                <button>Lakukan Pengecekan</button>
+            </div>     
+        </div>    
+    </div>
+    <!-- ----------------Pengertian------------------ -->   
+    <div id="kardio-info">
+        <div class="container">
+            <h2>Apa itu <span>Kardiovaskular</span>?</h2>
+            <div class="row">
+                <div class="kardio-img">
+                    <img src="{{ url_for('static', filename='kardiovaskular.jpg') }}" alt="Gambar Kardiovaskular">
+                </div>
+                <div class="kardio-text">
+                    <p>Penyakit kardiovaskular adalah kelompok gangguan pada jantung dan pembuluh darah yang meliputi penyakit jantung koroner, penyakit arteri perifer, dan kondisi lain yang terkait. Penyakit ini dapat menyebabkan komplikasi serius seperti serangan jantung dan stroke. Penting untuk menjaga kesehatan jantung melalui pola makan sehat, olahraga, dan pemeriksaan rutin.</p>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <!-- -----------------Jenis-jenis------------------- -->           
+    <div id="jenis-kardio">
+        <div class="container">
+            <h2>Jenis-Jenis Penyakit <span>Kardiovaskular</span></h2>
+            <div class="card-container">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='aritmia.jpg') }}" alt="Aritmia">
+                    <div class="card-content">
+                      <h2>Aritmia</h2>
+                      <p>Aritmia adalah gangguan irama jantung yang terjadi ketika sinyal listrik di jantung tidak berfungsi dengan baik, menyebabkan detak jantung terlalu cepat, lambat, atau tidak teratur.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="{{ url_for('static', filename='gagaljantung.jpg') }}" alt="Gagal Jantung">
+                    <div class="card-content">
+                      <h2>Gagal Jantung</h2>
+                      <p>Gagal jantung adalah kondisi di mana jantung tidak dapat memompa darah dengan cukup efektif untuk memenuhi kebutuhan tubuh, yang dapat disebabkan oleh berbagai faktor seperti penyakit jantung koroner atau hipertensi.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="{{ url_for('static', filename='jantungkoroner.jpg') }}" alt="Jantung Koroner">
+                    <div class="card-content">
+                      <h2>Jantung Koroner</h2>
+                      <p>Jantung koroner terjadi ketika pembuluh darah yang menyuplai darah ke jantung (arteri koroner) mengalami penyumbatan atau penyempitan akibat penumpukan plak lemak, meningkatkan risiko serangan jantung. </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="{{ url_for('static', filename='jantungbawaan.png') }}" alt="Jantung Bawaan">
+                    <div class="card-content">
+                      <h2>Jantung Bawaan</h2>
+                      <p>Jantung bawaan merujuk pada kelainan jantung yang ada sejak lahir, yang melibatkan gangguan pada struktur atau fungsi jantung yang dapat mempengaruhi aliran darah.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="{{ url_for('static', filename='katup.jpg') }}" alt="Katup Jantung">
+                    <div class="card-content">
+                      <h2>Penyakit Katup</h2>
+                      <p>Penyakit katup jantung melibatkan kelainan pada katup jantung, yang dapat menyebabkan katup tidak menutup dengan baik atau tidak terbuka sepenuhnya, mempengaruhi aliran darah dalam jantung.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="{{ url_for('static', filename='pem.jpg') }}" alt="Pembuluh darah">
+                    <div class="card-content">
+                      <h2>Penyumbatan Pembuluh<br> Darah</br></h2>
+                      <p>Penyumbatan pembuluh darah terjadi ketika pembuluh darah, baik arteri atau vena, tersumbat oleh plak atau bekuan darah, yang menghalangi aliran darah normal dan bisa berisiko menyebabkan stroke atau serangan jantung.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Overlay and Modal for tes.html -->
+    <div id="overlay">
+        <div id="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <iframe id="modal-iframe" src="" frameborder="0" width="100%" height="100%"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const overlay = document.getElementById('overlay');
+            const modalIframe = document.getElementById('modal-iframe');
+    
+            // Set iframe source to load tes.html
+            modalIframe.src = '/tes'; // Flask serves tes.html at this endpoint
+            overlay.style.display = 'flex'; // Show overlay
+        }
+    
+        function closeModal() {
+            const overlay = document.getElementById('overlay');
+            const modalIframe = document.getElementById('modal-iframe');
+    
+            overlay.style.display = 'none'; // Hide overlay
+            modalIframe.src = ''; // Clear iframe source to stop loading
+        }
+    </script>    
+</body>
+</html>
